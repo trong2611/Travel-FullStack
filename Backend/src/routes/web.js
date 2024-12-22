@@ -1,5 +1,5 @@
 import express from 'express'
-import {getUser} from '../controllers/homeController'
+import {hashPassword} from '../config/hashPassword'
 
 const router = express.Router()
 
@@ -10,7 +10,9 @@ const router = express.Router()
  */
 const initWebRouters = (app) => {
     
-    router.get('/', getUser)
+    router.get('/', (req, res) => {
+        res.send('hello')
+    })
 
     return app.use('/', router)
 }
